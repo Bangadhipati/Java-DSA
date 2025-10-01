@@ -5,7 +5,7 @@
 
 This repository is a curated archive of my **LeetCode solutions** in **Java**, covering a wide spectrum of **Data Structures and Algorithms**. Each solution reflects not just correctness and efficiency, but also clarity and expressive coding style.
 
-Whether you're brushing up on your fundamentals or preparing for interviews, these solutions are designed to be readable, reusable, and refined.
+Whether you're brushing up on your fundamentals or preparing for interviews, these solutions are designed to be readable, reusable and refined.
 
 ## Structure
 
@@ -30,6 +30,6 @@ git clone https://github.com/Bangadhipati/Java-DSA.git
 
 ## Why This Matters
 
-DSA isn't just about solving problems—it's about **thinking in patterns**, **writing with elegance**, and **building mental models**. This repo is my personal journey through that landscape, and I hope it helps you navigate yours.
+DSA isn't just about solving problems—it's about **thinking in patterns**, **writing with elegance** and **building mental models**. This repo is my personal journey through that landscape and I hope it helps you navigate yours.
 
 _“Code is poetry. Algorithms are rhythm. Let your logic dance.”_
