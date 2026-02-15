@@ -1,43 +1,35 @@
 class Solution {
     public String addBinary(String a, String b) {
-        // Use StringBuilder for efficient string manipulation
         StringBuilder sb = new StringBuilder();
-        
-        // Pointers starting from the end of each string
         int i = a.length() - 1;
         int j = b.length() - 1;
-        
-        int carry = 0; // Holds the carry-over value (0 or 1)
+        int carry = 0;
 
-        // Loop continues if there are digits left in 'a', OR 'b', OR we have a carry
-        while (i >= 0 || j >= 0 || carry == 1) {
+        // Loop until both strings are processed and no carry remains
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int sum = carry;
             
-            // Get the digit from 'a' if index is valid, else treat as 0
-            // (a.charAt(i) - '0') converts char '1' to int 1
-            int digitA = (i >= 0) ? a.charAt(i) - '0' : 0;
+            // Add digit from string 'a' if available
+            if (i >= 0) {
+                sum += a.charAt(i) - '0'; // Convert char to int
+                i--;
+            }
             
-            // Get the digit from 'b' if index is valid, else treat as 0
-            int digitB = (j >= 0) ? b.charAt(j) - '0' : 0;
+            // Add digit from string 'b' if available
+            if (j >= 0) {
+                sum += b.charAt(j) - '0';
+                j--;
+            }
 
-            // Calculate current sum
-            int sum = digitA + digitB + carry;
-
-            // Compute the new digit to append (sum % 2)
-            // If sum is 2 (1+1), 2 % 2 = 0. 
-            // If sum is 3 (1+1+1), 3 % 2 = 1.
+            // If sum is 0 or 2 -> append '0'
+            // If sum is 1 or 3 -> append '1'
             sb.append(sum % 2);
-
-            // Compute the new carry (sum / 2)
-            // If sum is 2 or 3, 2/2 = 1. Carry becomes 1.
+            
+            // Update carry (sum of 2 or 3 implies a carry of 1)
             carry = sum / 2;
-
-            // Move pointers to the left
-            i--;
-            j--;
         }
 
-        // Since we appended numbers from right-to-left, the result is backward!
-        // We must reverse it.
+        // The result was built backwards, so reverse it
         return sb.reverse().toString();
     }
 }
